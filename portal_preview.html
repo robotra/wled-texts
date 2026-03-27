@@ -1,0 +1,40 @@
+<!DOCTYPE html><html>
+<head>
+  <title>SMS Matrix Setup</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    *{box-sizing:border-box}
+    body{font-family:sans-serif;max-width:420px;margin:30px auto;padding:0 16px;background:#111;color:#eee}
+    h1{color:#4fc3f7;margin-bottom:4px}
+    p{color:#888;font-size:13px;margin-top:0}
+    label{display:block;font-size:13px;margin:12px 0 4px;color:#aaa}
+    input,textarea{width:100%;padding:9px 10px;border:1px solid #333;background:#222;color:#eee;border-radius:4px;font-size:14px}
+    input:focus,textarea:focus{border-color:#4fc3f7;outline:none}
+    textarea{height:90px;resize:vertical;font-family:monospace}
+    button{margin-top:20px;width:100%;padding:12px;background:#4fc3f7;color:#111;border:none;border-radius:4px;font-size:15px;font-weight:bold;cursor:pointer}
+    .note{color:#f57c00;font-size:13px;margin-top:14px;text-align:center}
+  </style>
+</head>
+<body>
+  <h1>SMS Matrix Setup</h1>
+  <p>Connect to <b>SMS-Matrix-Setup</b>, fill in the form, and save before the 60s window closes.</p>
+  <form method="POST" action="/save">
+    <label>WiFi SSID</label>
+    <input name="ssid" type="text" value="" required autocomplete="off">
+    <label>WiFi Password</label>
+    <input name="pass" type="password" value="" autocomplete="off">
+    <label>Twilio Account SID</label>
+    <input name="sid" type="text" value="" required autocomplete="off" placeholder="ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+    <label>Twilio Auth Token</label>
+    <input name="token" type="password" value="" required autocomplete="off">
+    <label>Twilio Phone Number</label>
+    <input name="number" type="tel" value="" required placeholder="+1xxxxxxxxxx">
+    <label>Allowed Senders (one number per line, E.164 format)</label>
+    <textarea name="whitelist" placeholder="+12025551234&#10;+14155559876&#10;&#10;Leave empty to allow everyone."></textarea>
+    <button type="submit">Save &amp; Reboot</button>
+  </form>
+  <div class="note">Portal closes in <span id="t">60</span>s</div>
+  <script>
+    var s=60,iv=setInterval(function(){document.getElementById('t').textContent=--s;if(s<=0)clearInterval(iv)},1000);
+  </script>
+</body></html>

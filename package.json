@@ -1,0 +1,8 @@
+{
+  "name": "wled-sms-display",
+  "version": "1.0.0",
+  "description": "Forward inbound Twilio SMS to a WLED matrix via MQTT",
+  "dependencies": {
+    "mqtt": "^5.10.1"
+  }
+}
