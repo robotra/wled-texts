@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth:*)",
+      "Bash(where gh:*)",
+      "Bash(winget install:*)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/johnf/AppData/Local/Programs/**)",
+      "Bash(cmd /c \"where gh\")",
+      "Bash(cmd /c \"where gh & echo EXIT:%ERRORLEVEL%\")"
+    ]
+  }
+}
